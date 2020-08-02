@@ -37,9 +37,9 @@ const MessageHub = ({
   timeout = 3000,
   children,
 }: MessageHubProps) => {
-  const [refMap] = useState(() => new WeakMap());
-  const [cancelMap] = useState(() => new WeakMap());
   const [items, setItems] = useState<Message[]>([]);
+  const refMap = useRef(new WeakMap()).current;
+  const cancelMap = useRef(new WeakMap()).current;
 
   const transition = useTransition(items, {
     key: (item) => item.key,
