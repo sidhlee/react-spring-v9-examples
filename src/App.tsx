@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
-import { loremIpsum } from 'lorem-ipsum';
+import React from 'react';
 
-import { Main, GlobalStyle, Container } from './styles';
+import { GlobalStyle } from './styles';
 import MessageHub from './examples/MessageHub';
 import { Switch, Route, NavLink } from 'react-router-dom';
 
@@ -14,16 +13,8 @@ const Navigation = () => (
 );
 
 const App = () => {
-  const addItemRef = useRef<Function | null>(null);
-
-  const handleMainClick = () => {
-    if (typeof addItemRef.current === 'function') {
-      addItemRef.current(loremIpsum());
-    }
-  };
-
   return (
-    <Main className="main" onClick={handleMainClick}>
+    <>
       <GlobalStyle />
       {/* invoke children fn passing in addItem fn to be stored in ref */}
       <Switch>
@@ -31,11 +22,10 @@ const App = () => {
           <Navigation />
         </Route>
         <Route path="/message-hub">
-          Click here to create notification
-          <MessageHub children={(addItem) => (addItemRef.current = addItem)} />
+          <MessageHub />
         </Route>
       </Switch>
-    </Main>
+    </>
   );
 };
 

@@ -99,6 +99,5 @@ export const Life = styled(animated.div)<{ top?: boolean }>`
   background-image: linear-gradient(130deg, #00b4e6, #00f0e0);
   height: 5px;
   left: 0px;
-  right: 25%;
   bottom: ${(props) => (props.top ? '10px' : '0')};
 `;
