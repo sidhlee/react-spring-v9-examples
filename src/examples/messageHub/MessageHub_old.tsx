@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useTransition } from 'react-spring';
 
-import { Container, Message, Content, Life, Button } from '../styles';
+import { Container, Message, Content, Life, Button } from './messageHubStyles';
 import { X } from 'react-feather';
 
 const DEBUG = true;

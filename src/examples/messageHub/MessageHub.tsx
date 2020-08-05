@@ -2,7 +2,14 @@ import React, { useState, useRef } from 'react';
 import { useTransition } from 'react-spring';
 import { loremIpsum } from 'lorem-ipsum';
 
-import { Container, Message, Content, Life, Button, Main } from '../styles';
+import {
+  Container,
+  Message,
+  Content,
+  Life,
+  Button,
+  Main,
+} from './messageHubStyles';
 import { X } from 'react-feather';
 
 const defaultConfig = {
