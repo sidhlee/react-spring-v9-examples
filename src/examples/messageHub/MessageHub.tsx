@@ -81,7 +81,7 @@ const MessageHub = ({
   return (
     <>
       <Main className="main" onClick={handleMainClick}>
-        Click here to create notification
+        <p>Click here to create notification</p>
         <Container>
           {transition(({ life, ...style }, message, state) => {
             // Transition still passing cancelled message into cb

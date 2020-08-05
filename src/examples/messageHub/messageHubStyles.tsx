@@ -4,7 +4,7 @@ import { animated } from 'react-spring';
 export const Main = styled('div')`
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
   cursor: pointer;
   display: flex;
