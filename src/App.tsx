@@ -1,33 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
 
+import Navigation from './Navigation';
 import { GlobalStyle } from './styles';
 import MessageHub from './examples/messageHub/MessageHub';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Trees from './examples/trees/Trees';
-
-const Navigation = styled(({ className }) => (
-  <nav className={className}>
-    <ul>
-      <li>
-        <NavLink to="message-hub">Message Hub</NavLink>
-      </li>
-      <li>
-        <NavLink to="trees">Trees</NavLink>
-      </li>
-    </ul>
-  </nav>
-))`
-  width: 100%;
-  height: 100vh;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  li {
-    padding-bottom: 0.5em;
-  }
-`;
+import Navbar from './examples/dropdownMenu/Navbar';
 
 const App = () => {
   return (
@@ -43,6 +21,9 @@ const App = () => {
         </Route>
         <Route path="/trees">
           <Trees />
+        </Route>
+        <Route path="/dropdown-menu">
+          <Navbar />
         </Route>
       </Switch>
     </>

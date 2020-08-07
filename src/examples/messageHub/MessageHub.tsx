@@ -79,44 +79,42 @@ const MessageHub = ({
   };
 
   return (
-    <>
-      <Main className="main" onClick={handleMainClick}>
-        <p>Click here to create notification</p>
-        <Container>
-          {transition(({ life, ...style }, message, state) => {
-            // Transition still passing cancelled message into cb
-            console.log('rendering');
-            console.log(messages, message);
-            if (
-              // prevent cancelled message from entering again
-              !messages.find((m) => m.key === message.key) &&
-              state.phase === 'mount' // allow 'leave' animation on canceled message
-            ) {
-              console.log(`message ${message.key} is not found in state`);
-              return;
-            }
-            return (
-              <Message style={style}>
-                <Content ref={(elm) => elm && refMap.set(message, elm)}>
-                  <Life style={{ right: life }} />
-                  <p>{message.text}</p>
-                  <Button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      if (cancelMap.has(message)) {
-                        cancelMap.get(message)();
-                      }
-                    }}
-                  >
-                    <X size={18} />
-                  </Button>
-                </Content>
-              </Message>
-            );
-          })}
-        </Container>
-      </Main>
-    </>
+    <Main className="main" onClick={handleMainClick}>
+      <p>Click here to create notification</p>
+      <Container>
+        {transition(({ life, ...style }, message, state) => {
+          // Transition still passing cancelled message into cb
+          console.log('rendering');
+          console.log(messages, message);
+          if (
+            // prevent cancelled message from entering again
+            !messages.find((m) => m.key === message.key) &&
+            state.phase === 'mount' // allow 'leave' animation on canceled message
+          ) {
+            console.log(`message ${message.key} is not found in state`);
+            return;
+          }
+          return (
+            <Message style={style}>
+              <Content ref={(elm) => elm && refMap.set(message, elm)}>
+                <Life style={{ right: life }} />
+                <p>{message.text}</p>
+                <Button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (cancelMap.has(message)) {
+                      cancelMap.get(message)();
+                    }
+                  }}
+                >
+                  <X size={18} />
+                </Button>
+              </Content>
+            </Message>
+          );
+        })}
+      </Container>
+    </Main>
   );
 };
 

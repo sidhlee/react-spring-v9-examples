@@ -20,7 +20,7 @@ const Content = styled(animated.div)`
   will-change: transform, opacity, height;
   margin-left: 6px;
   padding: 0px 0px 0px 14px;
-  border-left: 1px dashed rgba(0, 0, 0, 0.8);
+  border-left: 1px dashed var(--text-main);
   overflow: hidden;
   position: relative;
 `;

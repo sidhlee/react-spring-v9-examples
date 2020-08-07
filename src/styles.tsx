@@ -2,13 +2,20 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --bg: #191b21;
-    --text-main: black;
+    --text-main: #eee;
+    --text-secondary: #bbb;
+    --text-inverse: black;
     --primary: rgb(54, 54, 69);
     --secondary: #8fa5b6;
     --accent: rgb(255, 109, 109);
     --gray: rgba(54, 54, 69, 0.05);
-    --bg: rgb(32, 32, 32);
+    --bg: #151616;
+    --navbar-bg: #242526;
+    --nav-height: 60px;
+    --border-color: #474a4d;
+    --border: 1px solid var(--border-color);
+    --border-radius: 5px;
+    --transition-duration: 0.3s;
   }
 
   html {
@@ -29,7 +36,8 @@ export const GlobalStyle = createGlobalStyle`
     overflow: hidden;
     user-select: none;
     font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: #f0f0f0;
+    background: var(--bg);
+    color: var(--text-main);
   }
   html,
   body,
@@ -53,6 +61,7 @@ export const GlobalStyle = createGlobalStyle`
 
   ul {
   margin: 0;
+  padding: 0;
   list-style: none;
 }
 
@@ -63,7 +72,25 @@ button {
 
 a {
   text-decoration: none;
+  color: var(--text-secondary);
+  transition: filter 0.2s;
+  &:hover {
+    filter: brightness(1.3);
+  }
 }
+
+button {
+  font: inherit;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  transition: filter 0.2s;
+  &:hover {
+    filter: brightness(1.3);
+  }
+}
+
+
 
 img {
   max-width: 100%;

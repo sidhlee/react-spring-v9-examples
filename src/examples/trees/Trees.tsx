@@ -26,7 +26,7 @@ const Trees = ({ className }: { className?: string }) => {
                 width: '100%',
                 height: '100%',
                 background: 'var(--secondary)',
-                borderRadius: 5,
+                borderRadius: `var(--border-radius)`,
               }}
             />
           </div>
