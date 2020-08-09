@@ -32,6 +32,9 @@ const Navigation = (props: NavigationProps) => {
         <li>
           <NavLink to="dropdown-menu">Dropdown Menu</NavLink>
         </li>
+        <li>
+          <NavLink to="carousel">Carousel</NavLink>
+        </li>
       </ul>
     </StyledNavigation>
   );

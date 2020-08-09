@@ -6,6 +6,7 @@ import MessageHub from './examples/messageHub/MessageHub';
 import { Switch, Route } from 'react-router-dom';
 import Trees from './examples/trees/Trees';
 import Navbar from './examples/dropdownMenu/Navbar';
+import Carousel from './examples/carousel/Carousel';
 
 const App = () => {
   return (
@@ -24,6 +25,9 @@ const App = () => {
         </Route>
         <Route path="/dropdown-menu">
           <Navbar />
+        </Route>
+        <Route path="/carousel">
+          <Carousel />
         </Route>
       </Switch>
     </>
