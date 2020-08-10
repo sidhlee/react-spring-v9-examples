@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useSpring } from 'react-spring';
-import { Minimize2, Maximize2 } from 'react-feather';
+import { ArrowUpRight, ArrowDownLeft } from 'react-feather';
 
 import {
   SlideTextContainer,
@@ -34,7 +34,7 @@ const SlideText = ({ children }: SlideTextProps) => {
     <StyledSlideText style={styles}>
       <SlideTextContainer ref={ref}>
         <SlideTextButton onClick={() => setOpen(!open)}>
-          {open ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+          {open ? <ArrowUpRight size={16} /> : <ArrowDownLeft size={16} />}
         </SlideTextButton>
         {children}
       </SlideTextContainer>
