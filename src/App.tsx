@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Navigation from './Navigation';
-import { GlobalStyle } from './styles';
+import { GlobalStyle, HomeLink } from './styles';
 import MessageHub from './examples/messageHub/MessageHub';
 import { Switch, Route } from 'react-router-dom';
 import Trees from './examples/trees/Trees';
@@ -12,6 +12,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
+      <HomeLink to="/">ReactSpring</HomeLink>
       {/* invoke children fn passing in addItem fn to be stored in ref */}
       <Switch>
         <Route path="/" exact>

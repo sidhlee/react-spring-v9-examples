@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -107,4 +108,18 @@ p {
   margin-top: 0;
   margin-bottom: 1em;
 }
+`;
+
+export const HomeLink = styled(Link)`
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  font-weight: bold;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
 `;
