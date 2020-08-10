@@ -21,26 +21,40 @@ const Slides = (props: SlidesProps) => {
     from: {
       // When you compare number with null, null is coerced into 0!
       transform: getTranslate(slides.length, currentIndex, prevIndex, 'from'),
-      opacity: 0.5,
+      opacity: 0.8,
     },
-    enter: {
-      transform: `translate3d(0%,0,0)`,
-      opacity: 1,
+    enter: (s) => {
+      console.log(`enter:`, s.id);
+      return { transform: `translate3d(0%,0,0)`, opacity: 1 };
     },
-    leave: {
-      transform: getTranslate(slides.length, currentIndex, prevIndex, 'leave'),
-      opacity: 0.5,
+    leave: (s) => {
+      console.log('leave:', s.id);
+      return {
+        transform: getTranslate(
+          slides.length,
+          currentIndex,
+          prevIndex,
+          'leave'
+        ),
+        opacity: 0.5,
+      };
     },
   });
-
-  console.log(currentIndex, prevIndex);
+  // TODO: why Slides renders one extra time at the end?
+  console.log(
+    '[Slides]',
+    'currentIndex:',
+    currentIndex,
+    'prevIndex:',
+    prevIndex
+  );
 
   return (
     <StyledSlides>
       {transition((style, slide) => {
         return (
           <StyledSlide style={style} src={slide.src}>
-            <SlideText>
+            <SlideText slideId={slide.id}>
               <h2>{slide.title}</h2>
               <p>{slide.desc}</p>
             </SlideText>

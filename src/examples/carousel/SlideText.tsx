@@ -10,28 +10,27 @@ import {
 
 type SlideTextProps = {
   children: React.ReactNode;
+  slideId: string;
 };
 
-const SlideText = ({ children }: SlideTextProps) => {
+const SlideText = ({ children, slideId }: SlideTextProps) => {
   const [open, setOpen] = useState(false);
-
   const ref = useRef<HTMLDivElement>(null!);
 
-  const styles = useSpring({
-    from: {
-      height: 0,
-      width: 0,
-    },
-    height: ref.current && open ? ref.current.offsetHeight : 16,
-    width: ref.current && open ? ref.current.offsetWidth : 16,
+  const style = useSpring({
+    height: open ? ref.current.offsetHeight : 16,
+    width: open ? ref.current.offsetWidth : 16,
   });
 
+  // open text AFTER the ref component is rendered
   useEffect(() => {
+    console.log('[SlideText] effect - open text');
     setOpen(true);
   }, []);
 
+  console.log('[SlideText] for', slideId);
   return (
-    <StyledSlideText style={styles}>
+    <StyledSlideText style={style}>
       <SlideTextContainer ref={ref}>
         <SlideTextButton onClick={() => setOpen(!open)}>
           {open ? <ArrowUpRight size={16} /> : <ArrowDownLeft size={16} />}
