@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --text-main: #eee;
     --text-secondary: #bbb;
-    --text-inverse: black;
+    --text-inverse: #333;
     --primary: rgb(54, 54, 69);
     --secondary: #8fa5b6;
     --accent: rgb(255, 109, 109);
@@ -16,6 +16,8 @@ export const GlobalStyle = createGlobalStyle`
     --border: 1px solid var(--border-color);
     --border-radius: 5px;
     --transition-duration: 0.3s;
+
+    --box-shadow: 3px 3px 5px hsla(0, 0%, 0%, 0.2);
   }
 
   html {
@@ -87,6 +89,9 @@ button {
   transition: filter 0.2s;
   &:hover {
     filter: brightness(1.3);
+  }
+  &:focus {
+    outline: thin dotted;
   }
 }
 

@@ -3,6 +3,7 @@ import { slides, Slide } from './images';
 
 type State = {
   currentIndex: number;
+  prevIndex: number;
   slides: Slide[];
   isPlaying: boolean;
 };
@@ -19,7 +20,17 @@ const carouselReducer = (state: State, action: Action) => {
   switch (action.type) {
     case 'progress':
     case 'next':
+      return {
+        ...state,
+        currentIndex: (state.currentIndex + 1) % slides.length,
+        prevIndex: state.currentIndex,
+      };
     case 'prev':
+      return {
+        ...state,
+        currentIndex: (state.currentIndex + slides.length - 1) % slides.length,
+        prevIndex: state.currentIndex,
+      };
     case 'goTo':
     case 'play':
     case 'pause':
@@ -35,6 +46,7 @@ const CarouselDispatchContext = createContext<Dispatch | undefined>(undefined);
 
 const initialState: State = {
   currentIndex: 2,
+  prevIndex: 2,
   slides,
   isPlaying: false,
 };
@@ -58,6 +70,7 @@ const useCarouselState = () => {
       'useCarouselState must be used within a CarouselStateProvider'
     );
   }
+  return context;
 };
 
 const useCarouselDispatch = () => {
@@ -67,6 +80,7 @@ const useCarouselDispatch = () => {
       'useCarouselDispatch must ne used within a CarouselDispatchProvider'
     );
   }
+  return context;
 };
 
 const useCarousel = () => {
