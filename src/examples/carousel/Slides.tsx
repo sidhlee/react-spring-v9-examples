@@ -8,7 +8,7 @@ import SlideText from './SlideText';
 type SlidesProps = {};
 
 const Slides = (props: SlidesProps) => {
-  const [{ slides, currentIndex, prevIndex }] = useCarousel();
+  const [{ slides, currentIndex, prevIndex, usedNav }] = useCarousel();
   const slide = slides[currentIndex];
 
   // don't pass slides here!
@@ -20,7 +20,13 @@ const Slides = (props: SlidesProps) => {
   const transition = useTransition(slide, {
     from: {
       // When you compare number with null, null is coerced into 0!
-      transform: getTranslate(slides.length, currentIndex, prevIndex, 'from'),
+      transform: getTranslate(
+        slides.length,
+        currentIndex,
+        prevIndex,
+        'from',
+        usedNav
+      ),
       opacity: 0.8,
     },
     enter: (s) => {
@@ -34,7 +40,8 @@ const Slides = (props: SlidesProps) => {
           slides.length,
           currentIndex,
           prevIndex,
-          'leave'
+          'leave',
+          usedNav
         ),
         opacity: 0.5,
       };
@@ -65,16 +72,18 @@ const Slides = (props: SlidesProps) => {
   );
 };
 
+//TODO: simplify logic and improve API
 function getTranslate(
   slidesLength: number,
   currentIndex: number,
   prevIndex: number,
-  phase: 'from' | 'leave'
+  phase: 'from' | 'leave',
+  usedNav: boolean
 ) {
   const nextClickedFromTail =
-    currentIndex === 0 && prevIndex === slidesLength - 1;
+    !usedNav && currentIndex === 0 && prevIndex === slidesLength - 1;
   const prevClickedFromHead =
-    currentIndex === slidesLength - 1 && prevIndex === 0;
+    !usedNav && currentIndex === slidesLength - 1 && prevIndex === 0;
   const nextButtonClicked =
     nextClickedFromTail || (currentIndex > prevIndex && !prevClickedFromHead);
   const prevButtonClicked =

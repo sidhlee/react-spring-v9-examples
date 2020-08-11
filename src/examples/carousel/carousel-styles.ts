@@ -4,7 +4,7 @@ import { animated } from 'react-spring';
 const gridMain = css`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 13.5em 3em 10em;
+  grid-template-rows: 1fr 13.5em 3em 9em;
 `;
 
 export const CarouselContainer = styled('div')`
@@ -50,7 +50,7 @@ export const StyledSlide = styled(animated.li)<StyledSlideProps>`
 
 export const StyledSlideText = styled(animated.div)`
   color: var(--text-main);
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--alpha-black);
   border-radius: var(--border-radius);
   overflow: hidden;
   position: fixed;
@@ -66,22 +66,8 @@ export const SlideTextContainer = styled('div')`
   max-width: 90vw;
 `;
 
-export const StyledControls = styled('div')`
-  grid-row: 4;
-  grid-column: 2;
-  align-self: start;
-  justify-self: center;
-
-  display: flex;
-  align-items: flex-start;
-
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: var(--border-radius);
-  z-index: 200;
-`;
-
 export const Button = styled('button')`
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--alpha-white);
   --size: 1em;
   width: var(--size);
   height: var(--size);
@@ -95,7 +81,7 @@ export const Button = styled('button')`
   transition: color 0.2s;
   &:hover,
   &:focus {
-    color: rgba(255, 255, 255, 1);
+    color: var(--alpha-white-light);
     transform: scale(1.05);
   }
 
@@ -113,6 +99,67 @@ export const SlideTextButton = styled('button')`
   padding: 0;
   transition: background-color 0.2s;
   &:hover {
-    background: rgba(0, 0, 0, 0.6);
+    background: var(--alpha-black);
   }
+`;
+
+export const StyledSlideNav = styled('nav')`
+  z-index: 200;
+
+  grid-column: 1 / -1;
+  grid-row: 3;
+  justify-self: center;
+  ul {
+    display: flex;
+    li {
+      margin: 0 1em;
+      filter: drop-shadow(0 0 5px var(--alpha-black));
+      button {
+        --size: 0.8rem;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        background: var(--alpha-white);
+        &:hover {
+          background: var(--alpha-white-light));
+          filter: none;
+        }
+        &.active {
+          transform: scale(1.2);
+          background: var(--alpha-white-light);
+        }
+        &:focus,
+        &.active {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
+        }
+        transition: all 0.3s;
+      }
+    }
+  }
+`;
+
+export const StyledControls = styled('div')`
+  grid-row: 4;
+  grid-column: 2;
+  align-self: start;
+  justify-self: center;
+
+  display: flex;
+  align-items: flex-start;
+
+  background: var(--alpha-black);
+  border-radius: var(--border-radius);
+  z-index: 200;
+`;
+
+export const StyledProgressBar = styled('div')<{ progress: number }>`
+  width: ${(props) => props.progress * 100 + '%'};
+  height: 5px;
+  grid-row: 4;
+  grid-column: 1 / -1;
+  background: var(--alpha-white);
+  z-index: 100;
+  align-self: end;
+  margin-bottom: 1rem;
 `;

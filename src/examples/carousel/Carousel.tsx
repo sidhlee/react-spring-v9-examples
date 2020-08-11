@@ -1,22 +1,41 @@
-import React from 'react';
-import Slides from './Slides';
-import { CarouselStateProvider } from './carousel-context';
-import Controls from './Controls';
+import React, { useEffect } from 'react';
+
+import { CarouselStateProvider, useCarousel } from './carousel-context';
 import { StyledCarousel, CarouselContainer } from './carousel-styles';
 
-type CarouselProps = {};
+import Slides from './Slides';
+import Controls from './Controls';
+import SlideNav from './SlideNav';
+import ProgressBar from './ProgressBar';
 
-const Carousel = (props: CarouselProps) => {
+const DURATION = 3000;
+
+const Carousel = () => {
+  const [{ currentIndex, isPlaying }, dispatch] = useCarousel();
+
+  useEffect(() => {
+    if (isPlaying) {
+      const id = setTimeout(() => {
+        dispatch({ type: 'progress' });
+      }, DURATION);
+      return () => clearTimeout(id);
+    }
+  }, [isPlaying, dispatch, currentIndex]); // dispatch never changes
+
   return (
     <CarouselContainer>
       <StyledCarousel>
-        <CarouselStateProvider>
-          <Slides />
-          <Controls />
-        </CarouselStateProvider>
+        <Slides />
+        <SlideNav />
+        <Controls />
+        <ProgressBar key={currentIndex} duration={DURATION} />
       </StyledCarousel>
     </CarouselContainer>
   );
 };
 
-export default Carousel;
+export default () => (
+  <CarouselStateProvider>
+    <Carousel />
+  </CarouselStateProvider>
+);

@@ -6,6 +6,10 @@ type State = {
   prevIndex: number;
   slides: Slide[];
   isPlaying: boolean;
+  /**
+   * clicked navigation button to come to the current index instead of clicking next or prev button.
+   */
+  usedNav: boolean;
 };
 type Action =
   | { type: 'progress' }
@@ -24,17 +28,35 @@ const carouselReducer = (state: State, action: Action) => {
         ...state,
         currentIndex: (state.currentIndex + 1) % slides.length,
         prevIndex: state.currentIndex,
+        usedNav: false,
+        isPlaying: action.type === 'progress' ? true : false,
       };
     case 'prev':
       return {
         ...state,
         currentIndex: (state.currentIndex + slides.length - 1) % slides.length,
         prevIndex: state.currentIndex,
+        usedNav: false,
+        isPlaying: false,
       };
     case 'goTo':
+      return {
+        ...state,
+        currentIndex: action.payload,
+        prevIndex: state.currentIndex,
+        usedNav: true,
+        isPlaying: false,
+      };
     case 'play':
+      return {
+        ...state,
+        isPlaying: true,
+      };
     case 'pause':
-      return state;
+      return {
+        ...state,
+        isPlaying: false,
+      };
     default: {
       throw new Error(`Unhandled action type: ${action!.type}`);
     }
@@ -49,6 +71,7 @@ const initialState: State = {
   prevIndex: 2,
   slides,
   isPlaying: false,
+  usedNav: false,
 };
 
 const CarouselStateProvider = ({ children }: { children: React.ReactNode }) => {

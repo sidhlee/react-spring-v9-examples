@@ -10,6 +10,9 @@ export const GlobalStyle = createGlobalStyle`
     --secondary: #8fa5b6;
     --accent: rgb(255, 109, 109);
     --gray: rgba(54, 54, 69, 0.05);
+    --alpha-black: rgba(0,0,0,0.5);
+    --alpha-white: rgba(255, 255, 255, 0.6);
+    --alpha-white-light: rgba(255, 255, 255, 0.8);
     --bg: #151616;
     --navbar-bg: #242526;
     --nav-height: 60px;
