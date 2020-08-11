@@ -8,7 +8,7 @@ import { ActiveMenu } from './types';
 
 const Avatar = () => (
   <img
-    src="https://placem.at/people"
+    src="https://res.cloudinary.com/dprnfmgwy/image/upload/v1593578378/myplace/upload/ijdmr6f5fa2zlstmpkcg.jpg"
     alt="user"
     style={{
       // To compensate for container padding

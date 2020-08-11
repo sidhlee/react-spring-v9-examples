@@ -18,7 +18,8 @@ const Navbar = (props: NavbarProps) => {
   useEffect(() => {
     const img = new Image();
     // setting src triggers browser to download image
-    img.src = 'https://placem.at/people';
+    img.src =
+      'https://res.cloudinary.com/dprnfmgwy/image/upload/v1593578378/myplace/upload/ijdmr6f5fa2zlstmpkcg.jpg';
     img.onload = () => {
       setUserImageReady(true);
     };
