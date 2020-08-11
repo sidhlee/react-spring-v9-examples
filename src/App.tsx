@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 import Navigation from './Navigation';
 import { GlobalStyle, HomeLink } from './styles';
-import MessageHub from './examples/messageHub/MessageHub';
-import { Switch, Route } from 'react-router-dom';
-import Trees from './examples/trees/Trees';
-import Navbar from './examples/dropdownMenu/Navbar';
-import Carousel from './examples/carousel/Carousel';
+
+const MessageHub = lazy(() => import('./examples/messageHub/MessageHub'));
+const Trees = lazy(() => import('./examples/trees/Trees'));
+const Navbar = lazy(() => import('./examples/dropdownMenu/Navbar'));
+const Carousel = lazy(() => import('./examples/carousel/Carousel'));
 
 const App = () => {
   return (
@@ -14,23 +15,17 @@ const App = () => {
       <GlobalStyle />
       <HomeLink to="/">ReactSpring</HomeLink>
       {/* invoke children fn passing in addItem fn to be stored in ref */}
-      <Switch>
-        <Route path="/" exact>
-          <Navigation />
-        </Route>
-        <Route path="/message-hub">
-          <MessageHub />
-        </Route>
-        <Route path="/trees">
-          <Trees />
-        </Route>
-        <Route path="/dropdown-menu">
-          <Navbar />
-        </Route>
-        <Route path="/carousel">
-          <Carousel />
-        </Route>
-      </Switch>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route path="/" exact>
+            <Navigation />
+          </Route>
+          <Route path="/message-hub" component={MessageHub} />
+          <Route path="/trees" component={Trees} />
+          <Route path="/dropdown-menu" component={Navbar} />
+          <Route path="/carousel" component={Carousel} />
+        </Switch>
+      </Suspense>
     </>
   );
 };
