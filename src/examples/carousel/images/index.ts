@@ -1,9 +1,9 @@
 import img0 from './20190902_185638.jpg';
-import img1 from './IMG_7346.JPG';
-import img2 from './IMG_8433.JPG';
-import img3 from './IMG_8660.JPG';
-import img4 from './IMG_9004.JPG';
-import img5 from './IMG_9170.JPG';
+import img1 from './IMG_7346.jpg';
+import img2 from './IMG_8433.jpg';
+import img3 from './IMG_8660.jpg';
+import img4 from './IMG_9004.jpg';
+import img5 from './IMG_9170.jpg';
 
 export type Slide = {
   id: string;

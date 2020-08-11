@@ -2,18 +2,20 @@ import React from 'react';
 import Slides from './Slides';
 import { CarouselStateProvider } from './carousel-context';
 import Controls from './Controls';
-import { StyledCarousel } from './carousel-styles';
+import { StyledCarousel, CarouselContainer } from './carousel-styles';
 
 type CarouselProps = {};
 
 const Carousel = (props: CarouselProps) => {
   return (
-    <StyledCarousel>
-      <CarouselStateProvider>
-        <Slides />
-        <Controls />
-      </CarouselStateProvider>
-    </StyledCarousel>
+    <CarouselContainer>
+      <StyledCarousel>
+        <CarouselStateProvider>
+          <Slides />
+          <Controls />
+        </CarouselStateProvider>
+      </StyledCarousel>
+    </CarouselContainer>
   );
 };
 

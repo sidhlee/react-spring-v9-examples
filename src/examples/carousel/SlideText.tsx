@@ -20,6 +20,9 @@ const SlideText = ({ children, slideId }: SlideTextProps) => {
   const style = useSpring({
     height: open ? ref.current.offsetHeight : 16,
     width: open ? ref.current.offsetWidth : 16,
+    config: {
+      tension: 200,
+    },
   });
 
   // open text AFTER the ref component is rendered

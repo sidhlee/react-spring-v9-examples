@@ -7,12 +7,20 @@ const gridMain = css`
   grid-template-rows: 1fr 13.5em 3em 10em;
 `;
 
+export const CarouselContainer = styled('div')`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const StyledCarousel = styled('div')`
   position: relative;
-  margin: auto;
   width: 100%;
-  max-width: 700px;
+  max-width: 500px;
   height: 100vh;
+  max-height: 700px;
   overflow: hidden;
   ${gridMain};
 `;
