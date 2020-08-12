@@ -7,6 +7,7 @@ import {
   StyledSlideText,
   SlideTextButton,
 } from './carousel-styles';
+import { useMeasure } from '../../hooks';
 
 type SlideTextProps = {
   children: React.ReactNode;
@@ -14,12 +15,14 @@ type SlideTextProps = {
 };
 
 const SlideText = ({ children, slideId }: SlideTextProps) => {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null!);
+  const [open, setOpen] = useState(true);
+  const [bind, { width, height, left, top }] = useMeasure();
+  const paddedHeight = height + 2 * top;
+  const paddedWidth = width + 2 * left;
 
   const style = useSpring({
-    height: open ? ref.current.offsetHeight : 16,
-    width: open ? ref.current.offsetWidth : 16,
+    height: open ? paddedHeight : 16,
+    width: open ? paddedWidth : 16,
     config: {
       tension: 200,
     },
@@ -34,7 +37,7 @@ const SlideText = ({ children, slideId }: SlideTextProps) => {
   console.log('[SlideText] for', slideId);
   return (
     <StyledSlideText style={style}>
-      <SlideTextContainer ref={ref}>
+      <SlideTextContainer {...bind}>
         <SlideTextButton onClick={() => setOpen(!open)}>
           {open ? <ArrowUpRight size={16} /> : <ArrowDownLeft size={16} />}
         </SlideTextButton>

@@ -59,11 +59,11 @@ export const StyledSlideText = styled(animated.div)`
   z-index: 100;
 `;
 
-export const SlideTextContainer = styled('div')`
+export const SlideTextContainer = styled(animated.div)`
   overflow: hidden;
-  padding: 1.5em 2em;
-  width: 400px;
+  width: 300px;
   max-width: 90vw;
+  padding: 1em 1.5em;
 `;
 
 export const Button = styled('button')`
