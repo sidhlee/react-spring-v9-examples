@@ -9,6 +9,9 @@ const MessageHub = lazy(() => import('./examples/messageHub/MessageHub'));
 const Trees = lazy(() => import('./examples/trees/Trees'));
 const Navbar = lazy(() => import('./examples/dropdownMenu/Navbar'));
 const Carousel = lazy(() => import('./examples/carousel/Carousel'));
+const DraggableList = lazy(() =>
+  import('./examples/draggableList/DraggableList')
+);
 
 const App = () => {
   const location = useLocation();
@@ -45,6 +48,7 @@ const App = () => {
               <Route path="/trees" component={Trees} />
               <Route path="/dropdown-menu" component={Navbar} />
               <Route path="/carousel" component={Carousel} />
+              <Route path="/draggable-list" component={DraggableList} />
             </Switch>
           </animated.div>
         </Suspense>

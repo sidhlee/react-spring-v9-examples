@@ -35,6 +35,9 @@ const Navigation = (props: NavigationProps) => {
         <li>
           <NavLink to="carousel">Carousel</NavLink>
         </li>
+        <li>
+          <NavLink to="draggable-list">Draggable List</NavLink>
+        </li>
       </ul>
     </StyledNavigation>
   );
