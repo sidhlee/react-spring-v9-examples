@@ -39,7 +39,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     user-select: none;
     font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background: var(--bg);
@@ -99,8 +99,6 @@ button {
   }
 }
 
-
-
 img {
   max-width: 100%;
 }
@@ -110,6 +108,15 @@ h2,
 p {
   margin-top: 0;
   margin-bottom: 1em;
+}
+
+code {
+  background-color: rgba(27,31,35,.7);
+  border-radius: 5px;
+  font-size: 100%;
+  margin: 0;
+  padding: .2em .4em;
+  color: var(--accent);
 }
 `;
 
