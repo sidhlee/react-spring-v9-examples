@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { NavLink } from 'react-router-dom';
 import { animated } from 'react-spring';
 
 const StyledNavbar = styled('nav')`
@@ -44,7 +43,7 @@ const iconButton = css`
   }
 `;
 
-const NavLinkIcon = styled(NavLink)`
+const NavIcon = styled('button')`
   ${iconButton}
   transition: filter var(--transition-duration);
   &:hover {
@@ -96,7 +95,7 @@ export {
   StyledNavbar,
   NavItems,
   StyledNavItem,
-  NavLinkIcon,
+  NavIcon,
   StyledDropdownMenu,
   StyledMainMenu,
   StyledDropdownItem,

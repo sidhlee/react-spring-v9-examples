@@ -32,6 +32,7 @@ const DraggableList = (props: DraggableListProps) => {
     const newOrder = move(orderRef.current, currIndex, newIndex);
 
     setSprings((index) => {
+      // only applied to the target element of "down" event
       if (down && index === targetIndex) {
         return {
           y: newY,
@@ -42,7 +43,9 @@ const DraggableList = (props: DraggableListProps) => {
           immediate: (key) => key === 'y' || key === 'zIndex',
         };
       } else {
+        // All other elements are positioned based on new order
         return {
+          // need to use index to access individual spring
           y: newOrder.indexOf(index) * ITEM_HEIGHT,
           scale: 1,
           zIndex: 0,

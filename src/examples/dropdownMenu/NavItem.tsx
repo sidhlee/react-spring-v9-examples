@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyledNavItem, NavLinkIcon } from './navbarStyles';
+import { StyledNavItem, NavIcon } from './navbarStyles';
 
 type NavItemProps = {
   icon?: React.ReactNode;
@@ -11,9 +11,7 @@ const NavItem = ({ icon, children }: NavItemProps) => {
 
   return (
     <StyledNavItem>
-      <NavLinkIcon to="#" onClick={() => setOpen(!open)}>
-        {icon}
-      </NavLinkIcon>
+      <NavIcon onClick={() => setOpen(!open)}>{icon}</NavIcon>
       {open && children}
     </StyledNavItem>
   );
