@@ -12,6 +12,7 @@ const Carousel = lazy(() => import('./examples/carousel/Carousel'));
 const DraggableList = lazy(() =>
   import('./examples/draggableList/DraggableList')
 );
+const Slider = lazy(() => import('./examples/slider/Slider'));
 
 const App = () => {
   const location = useLocation();
@@ -49,6 +50,7 @@ const App = () => {
               <Route path="/dropdown-menu" component={Navbar} />
               <Route path="/carousel" component={Carousel} />
               <Route path="/draggable-list" component={DraggableList} />
+              <Route path="/slider" component={Slider} />
             </Switch>
           </animated.div>
         </Suspense>
