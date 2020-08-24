@@ -1,8 +1,7 @@
 import React, { useRef } from 'react';
 import { useSprings, animated } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
-import { clamp } from 'lodash';
-import move from 'lodash-move';
+import { move, clamp } from './drag-utils';
 
 import { StyledDraggableList } from './draggable-list-styles';
 
@@ -26,16 +25,16 @@ const DraggableList = (props: DraggableListProps) => {
   const bind = useDrag(({ args: [targetIndex], down, movement: [, y] }) => {
     const currIndex = orderRef.current.indexOf(targetIndex);
     const currY = ITEM_HEIGHT * currIndex;
-    const newY = currY + y;
-    const newRow = Math.round(newY / ITEM_HEIGHT);
-    const newIndex = clamp(newRow, 0, items.length - 1);
-    const newOrder = move(orderRef.current, currIndex, newIndex);
+    const dragY = currY + y;
+    const dragRow = Math.round(dragY / ITEM_HEIGHT);
+    const clampedDragRow = clamp(dragRow, 0, items.length - 1);
+    const newOrder = move(orderRef.current, currIndex, clampedDragRow);
 
     setSprings((index) => {
       // only applied to the target element of "down" event
       if (down && index === targetIndex) {
         return {
-          y: newY,
+          y: dragY,
           scale: 1.1,
           zIndex: 1,
           shadow: 15,
