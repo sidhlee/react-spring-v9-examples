@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { a } from 'react-spring';
 import { CheckCircle, Trash } from 'react-feather';
 
@@ -6,10 +6,14 @@ export const SliderContainer = styled('div')`
   width: 100%;
   height: 100%;
   display: grid;
-  place-items: center;
+  justify-items: center;
+  p {
+    align-self: end;
+  }
 `;
 export const SliderBack = styled(a.div)`
   position: relative;
+  align-self: start;
   width: 15rem;
   height: 5rem;
   border-radius: var(--border-radius);
@@ -45,5 +49,16 @@ export const SliderIcon = styled(a.span)`
   place-items: center;
 `;
 
-export const CheckIcon = styled(CheckCircle)``;
-export const TrashIcon = styled(Trash)``;
+const svgSize = css`
+  height: 60%;
+  width: 60%;
+`;
+export const CheckIcon = styled(CheckCircle)`
+  ${svgSize}
+  fill: #96fbc4;
+  color: var(--text-inverse);
+`;
+export const TrashIcon = styled(Trash)`
+  ${svgSize}
+  color: #f5576c;
+`;

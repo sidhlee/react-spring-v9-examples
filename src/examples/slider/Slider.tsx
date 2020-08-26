@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { useSpring } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
 
@@ -21,9 +21,12 @@ const Slider = (props: SliderProps) => {
     justifySelf: 'end',
     immediate: false,
   }));
+  const countRef = useRef(0);
+  const [slidingLeft, setSlidingLeft] = useState(true);
+  const slidingLeftRef = useRef(true);
+
   const bind = useDrag(({ down, movement }) => {
     // delta = [x, y]
-    console.log(movement);
     setSpring({
       x: down ? movement[0] : 0,
       bg: `linear-gradient(120deg, ${
@@ -33,10 +36,18 @@ const Slider = (props: SliderProps) => {
       justifySelf: movement[0] < 0 ? 'end' : 'start',
       immediate: (key) => down && key === 'x',
     });
+    const left = movement[0] < 0;
+    slidingLeftRef.current = left;
+    // trigger re-render only when sliding direction changes
+    // initial: true (left)
+    if (slidingLeftRef.current !== slidingLeft) {
+      setSlidingLeft((b) => (left ? true : false));
+    }
   });
 
   return (
     <SliderContainer>
+      <p>Render Count: {countRef.current++}</p>
       <SliderBack {...bind()} style={{ background: bg }}>
         <SliderIcon
           style={{
@@ -48,8 +59,7 @@ const Slider = (props: SliderProps) => {
             }),
             justifySelf,
           }}
-          // TODO: render icon accordingly
-          children={justifySelf.get() === 'end' ? <TrashIcon /> : <CheckIcon />}
+          children={slidingLeft ? <TrashIcon /> : <CheckIcon />}
         />
         <SliderFront style={{ x, scale: size }}>Slide</SliderFront>
       </SliderBack>
