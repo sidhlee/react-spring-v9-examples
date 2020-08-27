@@ -13,6 +13,7 @@ const DraggableList = lazy(() =>
   import('./examples/draggableList/DraggableList')
 );
 const Slider = lazy(() => import('./examples/slider/Slider'));
+const FlipCard = lazy(() => import('./examples/flipCard/FlipCard'));
 
 const App = () => {
   const location = useLocation();
@@ -51,6 +52,7 @@ const App = () => {
               <Route path="/carousel" component={Carousel} />
               <Route path="/draggable-list" component={DraggableList} />
               <Route path="/slider" component={Slider} />
+              <Route path="/flip-card" component={FlipCard} />
             </Switch>
           </animated.div>
         </Suspense>

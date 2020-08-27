@@ -39,7 +39,10 @@ const Navigation = (props: NavigationProps) => {
           <NavLink to="draggable-list">Draggable List</NavLink>
         </li>
         <li>
-          <NavLink to="Slider">Slider</NavLink>
+          <NavLink to="slider">Slider</NavLink>
+        </li>
+        <li>
+          <NavLink to="flip-card">Flip Card</NavLink>
         </li>
       </ul>
     </StyledNavigation>
