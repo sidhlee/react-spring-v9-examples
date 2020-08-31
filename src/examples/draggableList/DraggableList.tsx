@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useSprings, animated } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
-import { move, clamp } from './drag-utils';
+import { move, clamp } from '../../utils';
 
 import { StyledDraggableList } from './draggable-list-styles';
 

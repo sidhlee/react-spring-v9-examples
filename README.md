@@ -48,3 +48,20 @@ return (
   </>
 );
 ```
+
+## Shorthand Props
+
+Shorthand for interpolating values into transform string.
+
+- `x`, `y`, `z`
+- `rotate`, `rotateX`, `rotateY`, `rotate3d`
+- `scale`, `scaleX`, `scaleY`, `scale3d`
+- and some more...
+
+## Gesture State
+
+- **movement** - This is what you're going to use most of the time. At the beginning of the drag gesture, it is reset to `[0, 0]`. Use this if your element returns back to its original position at the end of the gesture.
+- **offset** - Use this if you want your element to start from where they were left off (not resetting).
+- **down** - `true` when a mouse button of touch is down.
+- **direction** - returns `[cos(angle), sin(angle)]`
+- **distance** - returns the absolute value of the movement.

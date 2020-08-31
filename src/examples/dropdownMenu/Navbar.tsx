@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import NavItem from './NavItem';
 
-import { ReactComponent as PlusIcon } from './icons/plus.svg';
+import { ReactComponent as PlusIcon } from './icons/plus-icon.svg';
 import { ReactComponent as BellIcon } from './icons/bell.svg';
 import { ReactComponent as MessengerIcon } from './icons/messenger.svg';
-import { ReactComponent as CaretIcon } from './icons/caret.svg';
+import { ReactComponent as CaretIcon } from './icons/caret-icon.svg';
 
 import { StyledNavbar, NavItems } from './navbarStyles';
 

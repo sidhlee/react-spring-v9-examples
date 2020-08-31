@@ -44,6 +44,9 @@ const Navigation = (props: NavigationProps) => {
         <li>
           <NavLink to="flip-card">Flip Card</NavLink>
         </li>
+        <li>
+          <NavLink to="view-pager">View Pager</NavLink>
+        </li>
       </ul>
     </StyledNavigation>
   );

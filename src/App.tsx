@@ -9,11 +9,12 @@ const MessageHub = lazy(() => import('./examples/messageHub/MessageHub'));
 const Trees = lazy(() => import('./examples/trees/Trees'));
 const Navbar = lazy(() => import('./examples/dropdownMenu/Navbar'));
 const Carousel = lazy(() => import('./examples/carousel/Carousel'));
-const DraggableList = lazy(() =>
-  import('./examples/draggableList/DraggableList')
+const DraggableList = lazy(
+  () => import('./examples/draggableList/DraggableList')
 );
 const Slider = lazy(() => import('./examples/slider/Slider'));
 const FlipCard = lazy(() => import('./examples/flipCard/FlipCard'));
+const ViewPager = lazy(() => import('./examples/viewPager/ViewPager'));
 
 const App = () => {
   const location = useLocation();
@@ -53,6 +54,7 @@ const App = () => {
               <Route path="/draggable-list" component={DraggableList} />
               <Route path="/slider" component={Slider} />
               <Route path="/flip-card" component={FlipCard} />
+              <Route path="/view-pager" component={ViewPager} />
             </Switch>
           </animated.div>
         </Suspense>
