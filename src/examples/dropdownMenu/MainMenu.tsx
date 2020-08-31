@@ -5,18 +5,13 @@ import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
 
 import DropdownItem from './DropdownItem';
 import { ActiveMenu } from './types';
+import userImage from './47.jpg';
+import { StyledAvatar } from './navbarStyles';
 
 const Avatar = () => (
-  <img
-    src="https://res.cloudinary.com/dprnfmgwy/image/upload/v1593578378/myplace/upload/ijdmr6f5fa2zlstmpkcg.jpg"
-    alt="user"
-    style={{
-      // To compensate for container padding
-      width: '120%',
-      height: '120%',
-      color: 'transparent' /* hide alt text before image loads */,
-    }}
-  />
+  <StyledAvatar>
+    <img src={userImage} alt="user" />
+  </StyledAvatar>
 );
 
 type MainMenuProps = {

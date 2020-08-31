@@ -64,7 +64,15 @@ const StyledDropdownMenu = styled(animated.div)`
   height: auto;
 `;
 
-const StyledMainMenu = styled('ul')``;
+const StyledAvatar = styled('div')`
+  width: 100%;
+  height: 100%;
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+`;
 
 const StyledDropdownItem = styled('li')`
   border-radius: var(--border-radius);
@@ -97,6 +105,6 @@ export {
   StyledNavItem,
   NavIcon,
   StyledDropdownMenu,
-  StyledMainMenu,
+  StyledAvatar,
   StyledDropdownItem,
 };

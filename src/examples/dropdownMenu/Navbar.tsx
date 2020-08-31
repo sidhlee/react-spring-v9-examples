@@ -5,6 +5,7 @@ import { ReactComponent as PlusIcon } from './icons/plus-icon.svg';
 import { ReactComponent as BellIcon } from './icons/bell.svg';
 import { ReactComponent as MessengerIcon } from './icons/messenger.svg';
 import { ReactComponent as CaretIcon } from './icons/caret-icon.svg';
+import userImage from './47.jpg';
 
 import { StyledNavbar, NavItems } from './navbarStyles';
 
@@ -18,8 +19,7 @@ const Navbar = (props: NavbarProps) => {
   useEffect(() => {
     const img = new Image();
     // setting src triggers browser to download image
-    img.src =
-      'https://res.cloudinary.com/dprnfmgwy/image/upload/v1593578378/myplace/upload/ijdmr6f5fa2zlstmpkcg.jpg';
+    img.src = userImage;
     img.onload = () => {
       setUserImageReady(true);
     };
