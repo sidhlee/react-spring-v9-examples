@@ -38,6 +38,8 @@ const App = () => {
           <animated.div
             style={{
               ...style,
+              // must be abs-positioned to cross fade between components
+              // (otherwise entering comp would be rendered at the bottom of the exiting comp)
               position: 'absolute',
               width: '100%',
               height: '100%',

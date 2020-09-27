@@ -41,17 +41,22 @@ const MessageHub = ({
   timeout = 2500,
 }: MessageHubProps) => {
   const [messages, setMessages] = useState<Message[]>([]);
+  // store cancel method for each message in garbage-collectable WeakMap
   const cancelMap = useRef(new WeakMap()).current;
+  // store vDOM element for each message for getting its offsetHeight value
   const refMap = useRef(new WeakMap()).current;
 
   const transition = useTransition(messages, {
     key: (message) => message.key,
     from: { opacity: 0, height: 0, life: '100%' },
+    // enter thunk's next function allows for sequential animation
     enter: (message) => async (next, cancel) => {
       console.log('enter: ', message.key);
+      // map allows us to store cancel method for each message object without directly modifying the object
       cancelMap.set(message, () => {
         console.log('cancel: ', message.key);
         cancel();
+        // remove message from messages state after canceling animation
         setMessages((messages: Message[]) =>
           messages.filter((m) => m.key !== message.key)
         );
