@@ -87,20 +87,25 @@ const MessageHub = ({
     <Main className="main" onClick={handleMainClick}>
       <p>Click here to create notification</p>
       <Container>
+        {/* transition((animatedValues, item, TransitionObject, siblingPosition) => {}) */}
         {transition(({ life, ...style }, message, state) => {
-          // Transition still passing cancelled message into cb
+          // Transition still calling cb with cancelled message
           console.log('rendering');
           console.log(messages, message);
-          if (
-            // prevent cancelled message from entering again
-            !messages.find((m) => m.key === message.key) &&
-            state.phase === 'mount' // allow 'leave' animation on canceled message
-          ) {
+          // prevent cancelled message from entering again
+          const isMessageRemoved = !messages.find((m) => m.key === message.key);
+          // allow 'leave' animation on canceled message
+          const isMounting = state.phase === 'mount';
+          if (isMessageRemoved && isMounting) {
             console.log(`message ${message.key} is not found in state`);
-            return;
+            return null;
           }
           return (
             <Message style={style}>
+              {/* React calls ref callback when the component mounts, 
+              but by that time the transition Fn will return null so no element will be passed to ref cb 
+              and will cause typeError on refMap.get(message).offsetHeight
+              */}
               <Content ref={(elm) => elm && refMap.set(message, elm)}>
                 <Life style={{ right: life }} />
                 <p>{message.text}</p>
