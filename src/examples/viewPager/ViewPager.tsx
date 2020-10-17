@@ -15,9 +15,13 @@ const ViewPager = (props: ViewPagerProps) => {
   const ref = useRef<HTMLDivElement>(null!);
 
   const [springs, setSprings] = useSprings(pages.length, (i) => ({
-    x: i * ref.current?.offsetWidth || 0, // position each page using the array index
-    display: i === 0 ? 'block' : 'none',
-    scale: 1,
+    // avoid animation on initial render
+    to: {
+      // undefined makes more sense than 0
+      x: i * ref.current?.offsetWidth || undefined, // position each page using the array index
+      display: i === 0 ? 'block' : 'none',
+      scale: 1,
+    },
   }));
 
   const bind = useDrag(
