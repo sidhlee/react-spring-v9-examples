@@ -4,16 +4,18 @@ import { a } from 'react-spring';
 export const Main = styled('div')`
   width: 100%;
   height: 100vh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 export const Container = styled('div')`
   position: relative;
   width: 100%;
-  max-width: 414px;
+  max-width: 400px;
   height: 100%;
-  max-height: 736px;
+  max-height: 400px;
   overflow: hidden; // hide pages translated out of the container
 `;
 
