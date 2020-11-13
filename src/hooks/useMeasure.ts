@@ -12,7 +12,7 @@ export function useMeasure() {
     )
   );
   useEffect(() => {
-    console.log('measure effect', ref.current);
+    // console.log('measure effect', ref.current);
     if (ref.current) resizeObserver.observe(ref.current);
     return () => resizeObserver.disconnect();
   }, [resizeObserver]);

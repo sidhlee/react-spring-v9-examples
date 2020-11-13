@@ -6,7 +6,7 @@ import Navigation from './Navigation';
 import { GlobalStyle, HomeLink } from './styles';
 
 const MessageHub = lazy(() => import('./examples/messageHub/MessageHub'));
-const Trees = lazy(() => import('./examples/trees/Trees'));
+const Trees = lazy(() => import('./examples/trees/run2/Trees'));
 const Navbar = lazy(() => import('./examples/dropdownMenu/Navbar'));
 const Carousel = lazy(() => import('./examples/carousel/Carousel'));
 const DraggableList = lazy(

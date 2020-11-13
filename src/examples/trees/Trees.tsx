@@ -5,7 +5,7 @@ import Tree from './Tree';
 const Trees = ({ className }: { className?: string }) => {
   return (
     <div className={className}>
-      <Tree name="A" defaultOpen>
+      <Tree name="Root" defaultOpen>
         <Tree name="subtree" />
         <Tree name="sub-tree with children">
           <Tree name="C1" style={{ color: 'var(--accent)' }} />

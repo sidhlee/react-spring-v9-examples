@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
-const Frame = styled('div')`
+const StyledTree = styled('div')`
   position: relative;
   padding: 4px 0px 0px 0px;
   text-overflow: ellipsis;
@@ -25,7 +25,7 @@ const Content = styled(animated.div)`
   position: relative;
 `;
 
-const toggle = {
+const iconStyles = {
   width: '1em',
   height: '1em',
   marginRight: 10,
@@ -33,4 +33,4 @@ const toggle = {
   verticalAlign: 'middle',
 };
 
-export { Frame, Title, Content, toggle };
+export { StyledTree, Title, Content, iconStyles };
