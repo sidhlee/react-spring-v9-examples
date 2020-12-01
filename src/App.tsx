@@ -15,6 +15,9 @@ const DraggableList = lazy(
 const Slider = lazy(() => import('./examples/slider/Slider'));
 const FlipCard = lazy(() => import('./examples/flipCard/FlipCard'));
 const ViewPager = lazy(() => import('./examples/viewPager/ViewPager'));
+const ExpandingMenuButton = lazy(
+  () => import('./examples/ExpandingMenuButton')
+);
 
 const App = () => {
   const location = useLocation();
@@ -52,6 +55,10 @@ const App = () => {
               <Route path="/message-hub" component={MessageHub} />
               <Route path="/trees" component={Trees} />
               <Route path="/dropdown-menu" component={Navbar} />
+              <Route
+                path="/expanding-menu-button"
+                component={ExpandingMenuButton}
+              />
               <Route path="/carousel" component={Carousel} />
               <Route path="/draggable-list" component={DraggableList} />
               <Route path="/slider" component={Slider} />

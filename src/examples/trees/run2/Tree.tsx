@@ -19,11 +19,14 @@ const Tree = ({ children, name, style, defaultOpen = false }: TreeProps) => {
   const previouslyOpen = usePrevious(open);
 
   const { opacity, transform, height } = useSpring({
-    from: {
-      opacity: 0,
-      transform: 'translate3d(20px, 0, 0)',
-      height: 0,
-    },
+    // Removing 'from' prevents initial animation
+    // from: {
+    //   opacity: 0,
+    //   transform: 'translate3d(20px, 0, 0)',
+    //   // Cannot use scale because height of one node affects the position of other nodes
+    //   // => we need page reflow to make changes in layout
+    //   height: 0,
+    // },
     to: {
       opacity: open ? 1 : 0,
       transform: `translate3d(${open ? 0 : 20}px, 0, 0)`,

@@ -26,9 +26,10 @@ const DropdownMenu = (props: DropdownMenuProps) => {
     key: (item) => item,
     initial: {
       transform: 'translate3d(0%,0,0)',
-      // just leave the height out, and it jumps right into "enter"
+      // just leave the height out, and it will jump right into "enter"
     },
     from: {
+      // If going back to main menu, slide in from the left.
       transform: `translate3d(${activeMenu === 'main' ? '-110%' : '110%'},0,0)`,
       height: menuHeight,
     },
