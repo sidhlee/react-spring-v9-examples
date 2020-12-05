@@ -1,36 +1,31 @@
 import styled from 'styled-components';
 import { a } from 'react-spring';
 
-export const Layout = styled.div`
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-`;
-
-export const Container = styled.div`
-  position: relative;
-  overflow: hidden;
-`;
-
-export const Inner = styled(a.div)`
+export const Expander = styled(a.div)`
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10vh;
+  left: 50vw;
   border-radius: 50%;
   overflow: hidden;
   will-change: transform;
 `;
 
-export const InnerInverter = styled(a.div)`
+/**
+ * invert the scale transform of the expander
+ * to keep the scale of the menu consistent.
+ */
+export const Inverter = styled(a.div)`
   will-change: transform;
 `;
 
-export const Content = styled(a.div)`
+/**
+ * Ref will be passed to measure the width and height
+ */
+export const MenuWrapper = styled(a.div)`
   position: absolute;
 `;
 
-export const Menu = styled.ul`
+export const MenuItems = styled.ul`
   min-width: 12rem;
   background: var(--border-color);
   padding: 1em 0;
