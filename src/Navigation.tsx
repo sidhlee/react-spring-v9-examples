@@ -50,6 +50,9 @@ const Navigation = (props: NavigationProps) => {
         <li>
           <NavLink to="view-pager">View Pager</NavLink>
         </li>
+        <li>
+          <NavLink to="animated-page">Animated Page</NavLink>
+        </li>
       </ul>
     </StyledNavigation>
   );
