@@ -64,12 +64,14 @@ const DraggableList = (props: DraggableListProps) => {
           <animated.li
             {...bind(i)}
             key={i}
-            style={{
-              ...styles,
-              boxShadow: shadow.to(
-                (s) => `0px ${s}px ${2 * s}px 0px rgba(0,0,0,0.15)`
-              ),
-            }}
+            style={
+              {
+                ...styles,
+                boxShadow: shadow.to(
+                  (s) => `0px ${s}px ${2 * s}px 0px rgba(0,0,0,0.15)`
+                ),
+              } as any
+            }
             children={items[i]}
           />
         ))}

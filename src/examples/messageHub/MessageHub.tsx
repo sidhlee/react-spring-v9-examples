@@ -101,7 +101,7 @@ const MessageHub = ({
             return null;
           }
           return (
-            <Message style={style}>
+            <Message style={style as any}>
               {/* React calls ref callback when the component mounts, 
               but by that time the transition Fn will return null so no element will be passed to ref cb 
               and will cause typeError on refMap.get(message).offsetHeight

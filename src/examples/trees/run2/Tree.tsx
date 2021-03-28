@@ -41,11 +41,13 @@ const Tree = ({ children, name, style, defaultOpen = false }: TreeProps) => {
       <Icon style={{ ...iconStyles }} onClick={() => setOpen(!open)} />
       {name}
       <Subtrees
-        style={{
-          opacity,
-          // will use 'auto' if it was previously open
-          height: open && previouslyOpen ? 'auto' : height,
-        }}
+        style={
+          {
+            opacity,
+            // will use 'auto' if it was previously open
+            height: open && previouslyOpen ? 'auto' : height,
+          } as any
+        }
       >
         <a.div {...bind} style={{ transform }}>
           {children}

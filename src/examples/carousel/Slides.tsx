@@ -60,7 +60,7 @@ const Slides = (props: SlidesProps) => {
     <StyledSlides>
       {transition((style, slide) => {
         return (
-          <StyledSlide style={style} src={slide.src}>
+          <StyledSlide style={style as any} src={slide.src}>
             <SlideText slideId={slide.id}>
               <h2>{slide.title}</h2>
               <p>{slide.desc}</p>

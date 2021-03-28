@@ -19,12 +19,14 @@ const FlipCard = (props: FlipCardProps) => {
 
   return (
     <FlipCardContainer onClick={() => set((s) => !s)}>
-      <CardFront style={{ opacity, transform }} />
+      <CardFront style={{ opacity, transform } as any} />
       <CardBack
-        style={{
-          opacity: opacity.to((o) => 1 - o),
-          transform: transform.to((t) => `${t} rotateX(180deg)`),
-        }}
+        style={
+          {
+            opacity: opacity.to((o) => 1 - o),
+            transform: transform.to((t) => `${t} rotateX(180deg)`),
+          } as any
+        }
       />
     </FlipCardContainer>
   );

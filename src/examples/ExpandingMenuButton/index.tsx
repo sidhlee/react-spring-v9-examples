@@ -89,7 +89,7 @@ const ExpandingMenuButton = () => {
       >
         <MenuWrapper
           ref={expandedRef}
-          style={{ opacity: opacity.to((v) => 1 - v) }}
+          style={{ opacity: opacity.to((v) => 1 - v) } as any}
         >
           <MenuItems>
             <li>One</li>
@@ -104,7 +104,7 @@ const ExpandingMenuButton = () => {
         <ExpandBtn
           ref={collapsedRef}
           onClick={() => setOpen(true)}
-          style={{ opacity, rotate }}
+          style={{ opacity, rotate } as any}
         >
           <Plus />
         </ExpandBtn>

@@ -50,15 +50,17 @@ const Slider = (props: SliderProps) => {
       <p>Render Count: {countRef.current++}</p>
       <SliderBack {...bind()} style={{ background: bg }}>
         <SliderIcon
-          style={{
-            transform: x.to({
-              map: Math.abs, // filter applied to input value
-              range: [50, 300], // input range
-              output: ['scale(0.5)', 'scale(1)'],
-              extrapolate: 'clamp', // default: extend
-            }),
-            justifySelf,
-          }}
+          style={
+            {
+              transform: x.to({
+                map: Math.abs, // filter applied to input value
+                range: [50, 300], // input range
+                output: ['scale(0.5)', 'scale(1)'],
+                extrapolate: 'clamp', // default: extend
+              }),
+              justifySelf,
+            } as any
+          }
           children={slidingLeft ? <TrashIcon /> : <CheckIcon />}
         />
         <SliderFront style={{ x, scale: size }}>Slide</SliderFront>

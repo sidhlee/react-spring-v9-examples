@@ -83,8 +83,10 @@ const ViewPager = (props: ViewPagerProps) => {
     <Main>
       <Container ref={ref}>
         {springs.map(({ x, display, scale }, i) => (
-          <StyledViewPager key={i} {...bind()} style={{ display, x }}>
-            <Page style={{ scale, backgroundImage: `url(${pages[i]})` }} />
+          <StyledViewPager key={i} {...bind()} style={{ display, x } as any}>
+            <Page
+              style={{ scale, backgroundImage: `url(${pages[i]})` } as any}
+            />
           </StyledViewPager>
         ))}
       </Container>

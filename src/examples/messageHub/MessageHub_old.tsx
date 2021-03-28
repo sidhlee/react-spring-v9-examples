@@ -80,9 +80,9 @@ const MessageHub = ({
           if (!items.find((i) => i.key === item.key) && state.phase === 'mount')
             return;
           return (
-            <Message style={style}>
+            <Message style={style as any}>
               <Content ref={(elm) => elm && refMap.set(item, elm)}>
-                <Life style={{ right: life }} />
+                <Life style={{ right: life } as any} />
                 <p>{item.msg}</p>
                 <Button
                   onClick={(e) => {

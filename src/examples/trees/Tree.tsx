@@ -43,10 +43,12 @@ const Tree = ({ defaultOpen = false, children, name, style }: TreeProps) => {
       />
       <Title style={style}>{name}</Title>
       <Content
-        style={{
-          opacity,
-          height: open && previouslyOpen ? 'auto' : height,
-        }}
+        style={
+          {
+            opacity,
+            height: open && previouslyOpen ? 'auto' : height,
+          } as any
+        }
       >
         <animated.div style={{ transform }} {...bind}>
           {children}
