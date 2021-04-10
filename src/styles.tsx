@@ -118,6 +118,14 @@ code {
   padding: .2em .4em;
   color: var(--accent);
 }
+
+input {
+  font-size: 1.2rem;
+  padding: .5em 1em;
+  border-radius: var(--border-radius);
+}
+
+
 `;
 
 export const HomeLink = styled(Link)`

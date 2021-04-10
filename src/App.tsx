@@ -19,6 +19,7 @@ const ExpandingMenuButton = lazy(
   () => import('./examples/ExpandingMenuButton')
 );
 const AnimatedPage = lazy(() => import('./examples/animatedPage/AnimatedPage'));
+const AnimatedText = lazy(() => import('./examples/animatedText/AnimatedText'));
 
 const App = () => {
   const location = useLocation();
@@ -68,6 +69,7 @@ const App = () => {
               <Route path="/flip-card" component={FlipCard} />
               <Route path="/view-pager" component={ViewPager} />
               <Route path="/animated-page" component={AnimatedPage} />
+              <Route path="/animated-text" component={AnimatedText} />
             </Switch>
           </animated.div>
         </Suspense>

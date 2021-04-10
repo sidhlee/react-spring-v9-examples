@@ -53,6 +53,9 @@ const Navigation = (props: NavigationProps) => {
         <li>
           <NavLink to="animated-page">Animated Page</NavLink>
         </li>
+        <li>
+          <NavLink to="animated-text">Animated Text</NavLink>
+        </li>
       </ul>
     </StyledNavigation>
   );
