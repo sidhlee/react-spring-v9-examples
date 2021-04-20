@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import LiquidWave from './textEffects/LiquidWave';
+import SmoothSlide from './textEffects/SmoothSlide';
 
 const StyledAnimatedText = styled.div`
   header {
@@ -25,12 +26,15 @@ const StyledAnimatedText = styled.div`
   main {
     padding: 0 2rem;
     letter-spacing: 0.1rem;
+    display: flex;
   }
 `;
 
 const AnimatedText: React.FC = () => {
   const [text, setText] = useState('Lorem Ipsum');
   const [key, setKey] = useState(0);
+
+  const letters = text.split('');
 
   // force rerender of main element
   const handleSubmit = (e: React.FormEvent) => {
@@ -52,7 +56,8 @@ const AnimatedText: React.FC = () => {
         </form>
       </header>
       <main key={key}>
-        <LiquidWave text={text} />
+        <LiquidWave letters={letters} />
+        <SmoothSlide letters={letters} />
       </main>
     </StyledAnimatedText>
   );

@@ -6,11 +6,10 @@ import TextCard from '../TextCard';
 const StyledLiquidWave = styled.h1``;
 
 type LiquidWaveProps = {
-  text: string;
+  letters: string[];
 };
 
-const LiquidWave: React.FC<LiquidWaveProps> = ({ text }) => {
-  const letters = text.split('');
+const LiquidWave: React.FC<LiquidWaveProps> = ({ letters }) => {
   const trail = useTrail(letters.length, {
     config: { mass: 1, tension: 400, friction: 25 },
     scale: 1,

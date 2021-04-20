@@ -2,14 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledTextCard = styled('div')<{ bg: string; color: string }>`
-  background-color: ${(props) => props.bg};
   flex: 1 1 auto;
-  padding: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  /* height: 12rem; */
+  margin: 1rem;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  background-color: ${(props) => props.bg};
   color: ${(props) => props.color};
   font-size: 1.5rem;
-  border-radius: var(--border-radius);
   text-align: center;
 `;
 
