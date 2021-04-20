@@ -7,33 +7,51 @@ const StyledAnimatedText = styled.div`
     max-width: 600px;
     margin: 3rem auto;
     text-align: center;
-    input {
-      width: 100%;
-      text-align: center;
+    form {
+      display: flex;
+      input {
+        width: 100%;
+        text-align: center;
+      }
+      button {
+        background-color: var(--primary);
+        font-weight: bold;
+        padding: 0 2em;
+        border-radius: var(--border-radius);
+      }
     }
   }
 
   main {
     padding: 0 2rem;
+    letter-spacing: 0.1rem;
   }
 `;
 
 const AnimatedText: React.FC = () => {
-  const [text, setText] = useState('Animate!');
+  const [text, setText] = useState('Lorem Ipsum');
+  const [key, setKey] = useState(0);
+
+  // force rerender of main element
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setKey((k) => k + 1);
+  };
 
   return (
     <StyledAnimatedText>
       <header>
         <h1>Animated Text</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
+          <button type="submit">Animate!</button>
         </form>
       </header>
-      <main>
+      <main key={key}>
         <LiquidWave text={text} />
       </main>
     </StyledAnimatedText>

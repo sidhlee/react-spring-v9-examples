@@ -4,9 +4,9 @@ import styled from 'styled-components';
 const StyledTextCard = styled('div')<{ bg: string; color: string }>`
   background-color: ${(props) => props.bg};
   flex: 1 1 auto;
-  padding: 5rem 3rem;
+  padding: 2rem;
   width: 100%;
-  height: 12rem;
+  /* height: 12rem; */
   color: ${(props) => props.color};
   font-size: 1.5rem;
   border-radius: var(--border-radius);

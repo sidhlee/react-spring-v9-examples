@@ -105,9 +105,17 @@ img {
 // makes it easier to control things
 h1,
 h2,
+h3
+ {
+margin: 0
+}
+
 p {
-  margin-top: 0;
-  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+span {
+  display: inline-block;
 }
 
 code {
