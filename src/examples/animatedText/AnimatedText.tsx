@@ -27,6 +27,10 @@ const StyledAnimatedText = styled.div`
     padding: 0 2rem;
     letter-spacing: 0.1rem;
     display: flex;
+    span {
+      // required for space inside div to be displayed
+      white-space: pre-wrap;
+    }
   }
 `;
 
@@ -35,6 +39,9 @@ const AnimatedText: React.FC = () => {
   const [key, setKey] = useState(0);
 
   const letters = text.split('');
+  //.map((letter) => (letter === ' ' ? '' : letter));
+
+  console.log(letters);
 
   // force rerender of main element
   const handleSubmit = (e: React.FormEvent) => {

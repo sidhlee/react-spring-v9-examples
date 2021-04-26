@@ -18,7 +18,7 @@ const LiquidWave: React.FC<LiquidWaveProps> = ({ letters }) => {
   });
 
   return (
-    <TextCard>
+    <TextCard effectName={'LiquidWave'}>
       <StyledLiquidWave>
         {trail.map((style, i) => (
           <a.span key={i} className="letter" style={style}>
